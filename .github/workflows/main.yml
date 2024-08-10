@@ -4,10 +4,12 @@ on:
   schedule:
     - cron: "25 01 * * *" # Executa todos os dias às 01:25 UTC (22:25 BRT)
     - cron: "30 01 * * *" # Executa todos os dias às 01:30 UTC (22:30 BRT)
+  workflow_dispatch: # Permite acionar o workflow manualmente
 
 jobs:
   run-script:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout código
       uses: actions/checkout@v4
