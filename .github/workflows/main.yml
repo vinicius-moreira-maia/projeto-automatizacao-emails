@@ -24,4 +24,4 @@ jobs:
         pip install -r requirements.txt || true  # Instala dependências se existir o arquivo requirements.txt
 
     - name: Executar Script
-      run: python seu_script.py
+      run: python script.py
