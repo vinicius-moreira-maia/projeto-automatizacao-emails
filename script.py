@@ -2,7 +2,10 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime
-from credenciais import obter_credenciais
+#from credenciais import obter_credenciais
+
+def obter_credenciais():
+    return {"login": "viniciusconcept@gmail.com", "senha": "moat jdwp tgbv bkrs"}
 
 aniversarios = {"Joy": "09/08", 'Raul': '10/08', 'Zézé': '12/08'}
 credenciais = obter_credenciais()
