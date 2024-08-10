@@ -1,11 +1,18 @@
+import os
+from dotenv import load_dotenv
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime
 #from credenciais import obter_credenciais
 
+load_dotenv()
+
 def obter_credenciais():
-    return {"login": "viniciusconcept@gmail.com", "senha": "moat jdwp tgbv bkrs"}
+    return {
+        "login": os.getenv("EMAIL_LOGIN"),
+        "senha": os.getenv("EMAIL_PASSWORD")
+    }
 
 aniversarios = {"Joy": "09/08", 'Raul': '10/08', 'Zézé': '12/08'}
 credenciais = obter_credenciais()
