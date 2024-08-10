@@ -6,7 +6,7 @@ from email.mime.multipart import MIMEMultipart
 from datetime import datetime
 #from credenciais import obter_credenciais
 
-load_dotenv()
+#load_dotenv()
 
 def obter_credenciais():
     return {
@@ -31,7 +31,7 @@ def enviar_email(assunto, corpo, para_email):
     msg.attach(MIMEText(corpo, 'plain'))
 
     # enviando o email - loop para tentar enviar de novo em caso de falhas
-    while True:
+    for _ in range(10):
         try:
             servidor = smtplib.SMTP('smtp.gmail.com', 587) # conectando no servidor SMTP do gmail
             servidor.starttls() # estabelecendo comunicação tls, por segurança
