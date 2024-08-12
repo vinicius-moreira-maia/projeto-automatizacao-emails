@@ -1,12 +1,8 @@
 import os
-from dotenv import load_dotenv
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime
-#from credenciais import obter_credenciais
-
-#load_dotenv()
 
 def obter_credenciais():
     return {
@@ -14,7 +10,7 @@ def obter_credenciais():
         "senha": os.getenv("EMAIL_PASSWORD")
     }
 
-aniversarios = {"Joy": "09/08", 'Raul': '10/08', 'Zézé': '12/08'}
+aniversarios = {"Vinicius": "12/08", "Daniel": "13/08", 'Marcus': '15/08'}
 credenciais = obter_credenciais()
 
 def enviar_email(assunto, corpo, para_email):
@@ -47,6 +43,6 @@ def enviar_email(assunto, corpo, para_email):
 hoje = datetime.now().strftime('%d/%m')
 for nome, data in aniversarios.items():
     if data == hoje:
-        assunto = f"Feliz Aniversário, {nome}!"
+        assunto = f"[TESTE] Automatização de e-mails, aniversariantes.!"
         corpo = f"Oi {nome},\n\nFeliz aniversário! Esperamos que você tenha um ótimo dia!\n\nAbraços!"
         enviar_email(assunto, corpo, "viniciusconcept@gmail.com")
