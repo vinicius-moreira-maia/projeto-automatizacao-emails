@@ -43,6 +43,6 @@ def enviar_email(assunto, corpo, para_email):
 hoje = datetime.now().strftime('%d/%m')
 for nome, data in aniversarios.items():
     if data == hoje:
-        assunto = f"[BNB-TESTE] Automatização de e-mails, aniversariantes!"
+        assunto = f"[BNB-TESTE]"
         corpo = f"Oi {nome},\n\nFeliz aniversário! Esperamos que você tenha um ótimo dia!\n\nAbraços!"
         enviar_email(assunto, corpo, "viniciusconcept@gmail.com")
