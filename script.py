@@ -5,12 +5,13 @@ from email.mime.multipart import MIMEMultipart
 from datetime import datetime
 
 def obter_credenciais():
+    '''Utilizando variáveis de ambiente, que são os SECRETS deste repositório.'''
     return {
         "login": os.getenv("EMAIL_LOGIN"),
         "senha": os.getenv("EMAIL_PASSWORD")
     }
 
-aniversarios = {"Vinicius": "12/08", "Daniel": "13/08", 'Marcus': '15/08'}
+aniversarios = {"Vinicius": "20/09"}
 credenciais = obter_credenciais()
 
 def enviar_email(assunto, corpo, para_email):
@@ -31,7 +32,7 @@ def enviar_email(assunto, corpo, para_email):
         try:
             servidor = smtplib.SMTP('smtp.gmail.com', 587) # conectando no servidor SMTP do gmail
             servidor.starttls() # estabelecendo comunicação tls, por segurança
-            servidor.login(de_email, de_senha) # conectando no servidor com senha de aplicação
+            servidor.login(de_email, de_senha) # conectando no servidor com senha de aplicação do gmail
             servidor.send_message(msg) # enviando mensagem
             servidor.quit() # fechando a conexão
             print(f"Email enviado para {para_email}")
@@ -39,10 +40,10 @@ def enviar_email(assunto, corpo, para_email):
         except Exception as e:
             print(f"Erro ao enviar email: {e}")
 
-# vendo se hoje é niver de alguém
+# vendo se hoje é aniversário de alguém (comparando apenas o dia e o mês)
 hoje = datetime.now().strftime('%d/%m')
 for nome, data in aniversarios.items():
     if data == hoje:
-        assunto = f"[BNB-TESTE]"
+        assunto = f"[Aniversários-Célula]"
         corpo = f"Oi {nome},\n\nFeliz aniversário! Esperamos que você tenha um ótimo dia!\n\nAbraços!"
-        enviar_email(assunto, corpo, "viniciusconcept@gmail.com")
+        enviar_email(assunto, corpo, obter_credenciais()["EMAIL_LOGIN"])
