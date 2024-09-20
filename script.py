@@ -46,4 +46,4 @@ for nome, data in aniversarios.items():
     if data == hoje:
         assunto = f"[Aniversários-Célula]"
         corpo = f"Oi {nome},\n\nFeliz aniversário! Esperamos que você tenha um ótimo dia!\n\nAbraços!"
-        enviar_email(assunto, corpo, obter_credenciais()["EMAIL_LOGIN"])
+        enviar_email(assunto, corpo, obter_credenciais()["login"])
