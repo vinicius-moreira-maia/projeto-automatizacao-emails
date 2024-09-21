@@ -42,7 +42,7 @@ def enviar_email(assunto, corpo, para_email):
         except Exception as e:
             print(f"Erro ao enviar email: {e}")
 
-# vendo se hoje é aniversário de alguém (comparando apenas o dia e o mês)
+# vendo se hoje é aniversário de alguém (comparando dia e mês)
 hoje = datetime.now().strftime('%d/%m')
 for nome, data in aniversarios.items():
     if data == hoje:
