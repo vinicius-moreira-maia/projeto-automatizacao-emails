@@ -3,6 +3,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime
+import time
 #from credencial import obter_credenciais
 
 def obter_credenciais():
@@ -40,6 +41,7 @@ def enviar_email(assunto, corpo, para_email):
             break
         except Exception as e:
             print(f"Erro ao enviar email: {e}")
+            time.sleep(5)
 
 # vendo se hoje é aniversário de alguém (comparando dia e mês)
 hoje = datetime.now().strftime('%d/%m')
@@ -47,4 +49,4 @@ for nome, data in aniversarios.items():
     if data == hoje:
         assunto = f"[Aniversários-Célula]"
         corpo = f"Oi {nome},\n\nFeliz aniversário! Esperamos que você tenha um ótimo dia!\n\nAbraços!"
-        enviar_email(assunto, corpo, obter_credenciais()["login"])
+        enviar_email(assunto, corpo, "viniciusconcept@gmail.com")
