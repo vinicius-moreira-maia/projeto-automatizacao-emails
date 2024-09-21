@@ -3,16 +3,15 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime
-from credenciais import obter_credenciais
+# from credenciais import obter_credenciais
 
-'''
+
 def obter_credenciais():
     # Utilizando variáveis de ambiente, que são os SECRETS deste repositório.
     return {
         "login": os.getenv("EMAIL_LOGIN"),
         "senha": os.getenv("EMAIL_PASSWORD")
     }
-'''
 
 aniversarios = {"Vinicius": "20/09"}
 credenciais = obter_credenciais()
